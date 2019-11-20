@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-function Die({range, seed, dx}) {
+function Die({img, dx}) {
     let seedrandom = require('seedrandom');
 
     const [roll, setRoll] = useState('')
@@ -25,8 +25,8 @@ function Die({range, seed, dx}) {
 
     return(
         <div>
-            <img className='die-img' src='https://cdn.shopify.com/s/files/1/1219/8174/products/4Pack_White1.png?v=1509744731' onClick={handleClick}/>
-            {range}
+            <img className='die-img' src={img} onClick={handleClick}/>
+            {/* {range} */}
             {roll}
         </div>
     );
