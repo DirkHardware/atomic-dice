@@ -1,22 +1,24 @@
 import React, {useState} from 'react';
 
 function Die({range, seed, dx}) {
+    let seedrandom = require('seedrandom');
 
     const [roll, setRoll] = useState('')
 
     function handleClick(e) {
         e.preventDefault();
         // console.log(dx)
-        rollDice(20)
+        rollDice(dx)
     }
 
     function rollDice(maxnum) {
-         let i = Math.round(range() * maxnum)
-         if(i === 0) {
+        let range = seedrandom()
+        let i = Math.round(range() * maxnum)
+        if(i === 0) {
              i++
-         }
-         setRoll(i)
-         console.log(i)
+        }
+        setRoll(i)
+        console.log(i)
     }
 
     // let roll = Math.round(range() * 20)
