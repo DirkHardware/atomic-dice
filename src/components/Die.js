@@ -2,19 +2,21 @@ import React, {useState} from 'react';
 
 function Die({range, seed, dx}) {
 
-    const [value, setValue] = useState('')
+    const [roll, setRoll] = useState('')
 
     function handleClick(e) {
         e.preventDefault();
-        console.log(dx)
+        // console.log(dx)
+        rollDice(20)
     }
 
-    function roll(maxnum) {
-         let i = Math.round(range() * 20)
+    function rollDice(maxnum) {
+         let i = Math.round(range() * maxnum)
          if(i === 0) {
-             roll ++
+             i++
          }
-         return i
+         setRoll(i)
+         console.log(i)
     }
 
     // let roll = Math.round(range() * 20)
@@ -23,7 +25,7 @@ function Die({range, seed, dx}) {
         <div>
             <img className='die-img' src='https://cdn.shopify.com/s/files/1/1219/8174/products/4Pack_White1.png?v=1509744731' onClick={handleClick}/>
             {range}
-            {roll(dx)}
+            {roll}
         </div>
     );
 
