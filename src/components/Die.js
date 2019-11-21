@@ -4,7 +4,7 @@ import App from '../App.css'
 function Die({img, dx}) {
     let seedrandom = require('seedrandom');
 
-    const [roll, setRoll] = useState('')
+    const [roll, setRoll] = useState('Roll Me!')
     const [allRolls, setallRolls] = useState([])
 
     function handleClick(e) {

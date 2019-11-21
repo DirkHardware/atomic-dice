@@ -23,23 +23,29 @@
 }
 
 .die-img {
-  height: 100px;
-  width: 100px
+  height: 150px;
+  width: 150px
 }
 
 .die {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  margin-left: 2%;
+  margin-right: 2%;  
   flex-wrap: wrap;
 }
 
 .dice-container {
   display: flex;
   justify-content: center;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  font-size: 20px
 }
 
 .roll-field {
   resize: none;
+  font-size: 15px;
+  border-radius: 5px;
 }
