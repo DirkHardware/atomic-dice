@@ -5,7 +5,7 @@ import DiceContainer from './components/DiceContainer.js';
 
 function App() {
   return (
-    <div>
+    <div className='app'>
       <DiceContainer/>
     </div>
   );

@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color: blueviolet;
 }
 
 .App-logo {
@@ -24,4 +25,17 @@
 .die-img {
   height: 100px;
   width: 100px
+}
+
+.die {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.dice-container {
+  display: flex;
+  justify-content: center;
+  justify-content: space-between;
 }

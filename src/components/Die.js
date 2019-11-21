@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import App from '../App.css'
 
 function Die({img, dx}) {
     let seedrandom = require('seedrandom');
@@ -24,7 +25,7 @@ function Die({img, dx}) {
     // let roll = Math.round(range() * 20)
 
     return(
-        <div>
+        <div className='die'>
             <img className='die-img' src={img} onClick={handleClick}/>
             {/* {range} */}
             {roll}
