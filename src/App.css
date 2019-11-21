@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  background-color: blueviolet;
+  /* background-color: blueviolet; */
 }
 
 .App-logo {
@@ -38,4 +38,8 @@
   display: flex;
   justify-content: center;
   justify-content: space-between;
+}
+
+.roll-field {
+  resize: none;
 }
