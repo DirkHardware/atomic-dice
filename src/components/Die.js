@@ -28,6 +28,7 @@ function Die({img, dx}) {
 
     function handleSubmit(e) {
         e.preventDefault()
+        setRoll('Roll Me!')
         setallRolls([])
     }
 
@@ -39,7 +40,7 @@ function Die({img, dx}) {
                 <form onSubmit={handleSubmit}>
                     <textarea className='roll-field' rows='8' type='text' name='rolls' value={allRolls}/>
                     <div>
-                        <button className='clearbutton'>Clear</button>
+                        <button className='clear-button'>Clear</button>
                     </div>
                 </form>    
             </div>
