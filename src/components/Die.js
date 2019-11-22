@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import App from '../App.css'
 import {setallRolls} from './DiceContainer'
 
-function Die({img, dx, rollDice, allRolls, handleClick}) {
+function Die({img, dx, rollDice, allRolls, addToRollBox, handleClick}) {
     let seedrandom = require('seedrandom');
 
     const [roll, setRoll] = useState('Roll Me!')
@@ -23,6 +23,7 @@ function Die({img, dx, rollDice, allRolls, handleClick}) {
         }
         setRoll(i)
         setAllLocalRolls(allLocalRolls.concat(i))
+        addToRollBox(i)
         console.log(i)
     }
 
