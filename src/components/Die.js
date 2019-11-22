@@ -1,15 +1,14 @@
 import React, {useState} from 'react';
 import App from '../App.css'
 
-function Die({img, dx}) {
+function Die({img, dx, rollDice, allRolls, handleClick}) {
     let seedrandom = require('seedrandom');
 
     const [roll, setRoll] = useState('Roll Me!')
-    const [allRolls, setallRolls] = useState([])
 
     function handleClick(e) {
         e.preventDefault();
-        // console.log(dx)
+        console.log(dx)
         rollDice(dx)
     }
 
@@ -17,19 +16,11 @@ function Die({img, dx}) {
         let range = seedrandom()
         let i = Math.round(range() * maxnum)
         if(i === 0) {
-             i++
+                i++
         }
         setRoll(i)
         setallRolls(allRolls.concat(i))
         console.log(i)
-    }
-
-    // let roll = Math.round(range() * 20)
-
-    function handleSubmit(e) {
-        e.preventDefault()
-        setRoll('Roll Me!')
-        setallRolls([])
     }
 
     return(

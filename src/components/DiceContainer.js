@@ -1,11 +1,16 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Die from './Die.js';
-import App from '../App.css'
+import App from '../App.css';
+import RollBox from './components/RollBox';
+
 
 function DiceContainer() {
     let seedrandom = require('seedrandom');
     // let rng = seedrandom('67,223,113,2,207,237,155,184,102,94,186,162,89,157,87,13,227,46,13,71,251,48,136,243,22,160,253,168,170,202,85,196,167,222,15,172,239,107,165,23,76,110,153,82,252,92,220,41,197,86,199,55,164,84,127,49,185,219,1,222,106,151,255,78,132,180,179,201,81,140,199,2,66,44,42,104,79,76,103,107,16,99,219,182,117,37,242,14,245,177,44,255,126,114,246,148,152,122,133,63,79,83,5,215,249,30,143,102,253,61,49,119,19,142,200,96,135,226,136,102,130,61,208,58,69,28,150,241')
     // let range = seedrandom()
+
+    const [allRolls, setallRolls] = useState([])
+
     let diceTypes = [
                      {dx: 100, img: 'https://cdn11.bigcommerce.com/s-70184/images/stencil/1920w/products/3040/7416/d10-tens-dice-black-gold__06083.1530125950.jpg?c=2'}, 
                      {dx: 20, img: 'https://cdn.shopify.com/s/files/1/1219/8174/products/4Pack_White1.png?v=1509744731'}, 
@@ -19,13 +24,29 @@ function DiceContainer() {
         <Die
             dx={die.dx}
             img={die.img}
+            handleClick={handleClick}
+            rollDice={rollDice}
+            allRolls={allRolls}
         />
         )
 
+    // let roll = Math.round(range() * 20)
+
+    function handleSubmit(e) {
+        e.preventDefault()
+        setRoll('Roll Me!')
+        setallRolls([])
+    }
+
     return(
-        <div id="dice-container" className="dice-container">
+    <div className='dice-container'>
+        <div id="all-dice" className="all-dice">
             {allDice}
         </div>
+        <div>
+            <RollBox/>
+        </div>
+    </div>
     )
 } 
 
