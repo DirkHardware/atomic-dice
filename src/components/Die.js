@@ -36,14 +36,14 @@ function Die({img, dx}) {
         <div className='die'>
             <img className='die-img' src={img} onClick={handleClick}/>
             {/* {range} */}
-            <div> 
+            {/* <div> 
                 <form onSubmit={handleSubmit}>
                     <textarea className='roll-field' rows='8' type='text' name='rolls' value={allRolls}/>
                     <div>
                         <button className='clear-button'>Clear</button>
                     </div>
                 </form>    
-            </div>
+            </div> */}
             {roll}
         </div>
     );
