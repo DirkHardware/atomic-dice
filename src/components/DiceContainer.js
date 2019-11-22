@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import Die from './Die.js';
 import App from '../App.css';
-import RollBox from './components/RollBox';
+import RollBox from './RollBox';
 
 
 function DiceContainer() {
@@ -20,23 +20,21 @@ function DiceContainer() {
                      {dx: 6, img: 'https://cdn10.bigcommerce.com/s-xn8dkfqe/products/203/images/394/16mm-round-red__08689.1498706731.1280.1280.png?c=2'}, 
                      {dx: 4, img: 'https://www.gamesquest.co.uk/media/catalog/product/cache/1/thumbnail/600x/17f82f742ffe127f42dca9de82fb58b1/d/g/dgdjbpo4rdg_-sale-4_sided_jumbo_opaque_dice_red_-_sale-dgdjbpo4rdg.jpg'}
                     ]
+
     let allDice = diceTypes.map(die => 
         <Die
             dx={die.dx}
             img={die.img}
-            handleClick={handleClick}
-            rollDice={rollDice}
-            allRolls={allRolls}
         />
         )
 
     // let roll = Math.round(range() * 20)
 
-    function handleSubmit(e) {
-        e.preventDefault()
-        setRoll('Roll Me!')
-        setallRolls([])
-    }
+    // function handleSubmit(e) {
+    //     e.preventDefault()
+    //     setRoll('Roll Me!')
+    //     setallRolls([])
+    // }
 
     return(
     <div className='dice-container'>

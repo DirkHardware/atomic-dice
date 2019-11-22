@@ -1,10 +1,13 @@
 import React, {useState} from 'react';
 import App from '../App.css'
+import {setallRolls} from './DiceContainer'
 
 function Die({img, dx, rollDice, allRolls, handleClick}) {
     let seedrandom = require('seedrandom');
 
     const [roll, setRoll] = useState('Roll Me!')
+    const [allLocalRolls, setAllLocalRolls] = useState([])
+
 
     function handleClick(e) {
         e.preventDefault();
@@ -19,7 +22,7 @@ function Die({img, dx, rollDice, allRolls, handleClick}) {
                 i++
         }
         setRoll(i)
-        setallRolls(allRolls.concat(i))
+        setAllLocalRolls(allLocalRolls.concat(i))
         console.log(i)
     }
 
