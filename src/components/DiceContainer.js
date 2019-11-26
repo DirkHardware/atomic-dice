@@ -73,6 +73,8 @@ class DiceContainer extends React.Component {
     render(){
 
     return(
+        //Perhaps pass Rollbox a function that takes an argument of a function it can use to return a new array of rolls
+        //That way you can pass the useState method from hooks into the argument on the Rollbox side
         <div className='dice-container'>
             <div id="all-dice" className="all-dice">
                 {this.state.allDice}
