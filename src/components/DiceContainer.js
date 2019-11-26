@@ -34,6 +34,10 @@ class DiceContainer extends React.Component {
             )})
     }
 
+    componentDidUpdate() {
+        console.log('component updated')
+    }
+
     addToRollBox = roll => {
         this.setState({allGlobalRolls: this.state.allGlobalRolls.concat(roll)})
         console.log(this.state.allGlobalRolls)
@@ -80,11 +84,13 @@ class DiceContainer extends React.Component {
                 {this.state.allDice}
             </div>
             <div>
-                <RollBox
-                    allGlobalRolls={this.state.allGlobalRolls}
-                />
+                <form>
+                        <textarea className='roll-field' rows='8' cols='100' type='text' name='rolls' value={this.state.allGlobalRolls}/>
+                    <div>
+                        <button className='clear-button'>Clear</button>
+                    </div>
+                </form>   
             </div>
-            {this.state.allGlobalRolls}
         </div>
         )
     }
