@@ -82,6 +82,7 @@ class DiceContainer extends React.Component {
                     allGlobalRolls={this.state.allGlobalRolls}
                 />
             </div>
+            {this.state.allGlobalRolls}
         </div>
         )
     }
