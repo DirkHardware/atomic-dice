@@ -22,7 +22,7 @@ function Die({img, dx, rollDice, allRolls, addToRollBox, handleClick}) {
                 i++
         }
         setRoll(i)
-        setAllLocalRolls(allLocalRolls.concat(i))
+        setAllLocalRolls(allLocalRolls.concat('1d',maxnum,': ', i))
         addToRollBox(i)
         console.log(i)
     }
