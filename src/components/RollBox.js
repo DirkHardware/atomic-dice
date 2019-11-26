@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
 import App from '../App.css' 
 
-function RollBox() {
+function RollBox(allGlobalRolls) {
 
     return(
         <div> 
             <form>
-                <textarea className='roll-field' rows='8' cols='100' type='text' name='rolls' value={50}/>
+                <textarea className='roll-field' rows='8' cols='100' type='text' name='rolls' value={allGlobalRolls}/>
                 <div>
                     <button className='clear-button'>Clear</button>
                 </div>

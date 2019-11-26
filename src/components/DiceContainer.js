@@ -3,7 +3,10 @@ import Die from './Die.js';
 import App from '../App.css';
 import RollBox from './RollBox';
 
+//Foo bar
 
+//I think the solution here is to remove rollbox as a seperate component entirely and just make it a form inside dicecontainer
+//and try and figureout how to make dicecontainer check for statechange
 class DiceContainer extends React.Component {
 
     state= {
@@ -33,6 +36,7 @@ class DiceContainer extends React.Component {
 
     addToRollBox = roll => {
         this.setState({allGlobalRolls: this.state.allGlobalRolls.concat(roll)})
+        console.log(this.state.allGlobalRolls)
     }
 
     // let seedrandom = require('seedrandom');
@@ -74,7 +78,9 @@ class DiceContainer extends React.Component {
                 {this.state.allDice}
             </div>
             <div>
-                <RollBox/>
+                <RollBox
+                    allGlobalRolls={this.state.allGlobalRolls}
+                />
             </div>
         </div>
         )
