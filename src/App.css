@@ -1,6 +1,5 @@
 .App {
   text-align: center;
-  /* background-color: blueviolet; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -23,8 +22,8 @@
 }
 
 .die-img {
-  height: 150px;
-  width: 150px
+  height: 140px;
+  width: 140px
 }
 
 .die {
