@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import Die from './Die.js';
 import App from '../App.css';
-import RollBox from './RollBox';
 
 class DiceContainer extends React.Component {
 
@@ -45,7 +44,7 @@ class DiceContainer extends React.Component {
                 </div>
                 <div>
                     <form>
-                            <textarea className='roll-field' rows='8' cols='100' type='text' name='rolls' value={this.state.allGlobalRolls}/>
+                            <textarea className='roll-field' rows='8' cols='200' type='text' name='rolls' value={this.state.allGlobalRolls}/>
                         <div>
                             <button className='clear-button'>Clear</button>
                         </div>

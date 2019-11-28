@@ -37,6 +37,12 @@
   flex-wrap: wrap;
 }
 
+.dice-container {
+  display: flex;
+  flex-direction: column;
+  /* align-items: flex-start; */
+}
+
 .roll-field {
   resize: none;
   font-size: 15px;
