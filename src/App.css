@@ -13,6 +13,13 @@
   font-size: 20px
 }
 
+.button-plus-minus {
+  display: flex;
+  justify-content: center;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
 .clear-button {
   margin-top: 1%;
   margin-bottom: 10%;
@@ -37,10 +44,35 @@
   flex-wrap: wrap;
 }
 
+.die-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 2%;
+  margin-right: 2%;
+  margin-bottom: 2%;  
+  flex-wrap: wrap;
+}
+
+.die-selector {
+  display: flex
+}
+
 .dice-container {
   display: flex;
   flex-direction: column;
   /* flex-wrap: wrap; */
+}
+
+.indicator {
+  margin-left: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  justify-items: center;
 }
 
 .roll-field {

@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
 import App from '../App.css'
 import {setallRolls} from './DiceContainer'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Die({img, dx, rollDice, allRolls, addToRollBox, handleClick}) {
     let seedrandom = require('seedrandom');
 
     const [roll, setRoll] = useState('Roll Me!')
-    const [allLocalRolls, setAllLocalRolls] = useState([])
 
 
     function handleClick(e) {
@@ -22,16 +22,32 @@ function Die({img, dx, rollDice, allRolls, addToRollBox, handleClick}) {
                 i++
         }
         setRoll(i)
-        // setAllLocalRolls(allLocalRolls.concat('1d',maxnum,': ', i))
         let rollString = ` 1d${maxnum}: ${i}`
         addToRollBox(rollString)
-        console.log(i)
     }
 
     return(
         <div className='die'>
-            <img className='die-img' src={img} onClick={handleClick}/>
-            {roll}
+            <div className='die-details'>
+                <div className='indicator'>
+                    Rolls
+                </div>
+                <div className='die-selector'>
+                    <button className='button-plus-minus'> - </button>
+                    0
+                    <button className='button-plus-minus'> + </button>
+                </div>
+                <img className='die-img' src={img} onClick={handleClick}/>
+                <div className='indicator'>
+                    Modifier
+                </div>
+                <div className='die-selector'>
+                    <button className='button-plus-minus'> - </button>
+                    0
+                    <button className='button-plus-minus'> + </button>
+                </div>
+            </div>
+            {/* {roll} */}
         </div>
     );
 
