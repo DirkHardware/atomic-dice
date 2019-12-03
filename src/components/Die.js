@@ -7,6 +7,8 @@ function Die({img, dx, rollDice, allRolls, addToRollBox, handleClick}) {
     let seedrandom = require('seedrandom');
 
     const [roll, setRoll] = useState('Roll Me!')
+    const [dnum, setDnum] = useState(1)
+    const [mod, setMod] = useState(0)
 
 
     function handleClick(e) {
@@ -34,7 +36,7 @@ function Die({img, dx, rollDice, allRolls, addToRollBox, handleClick}) {
                 </div>
                 <div className='die-selector'>
                     <button className='button-plus-minus'> - </button>
-                    0
+                    {dnum}
                     <button className='button-plus-minus'> + </button>
                 </div>
                 <img className='die-img' src={img} onClick={handleClick}/>
@@ -43,7 +45,7 @@ function Die({img, dx, rollDice, allRolls, addToRollBox, handleClick}) {
                 </div>
                 <div className='die-selector'>
                     <button className='button-plus-minus'> - </button>
-                    0
+                    {mod}
                     <button className='button-plus-minus'> + </button>
                 </div>
             </div>
