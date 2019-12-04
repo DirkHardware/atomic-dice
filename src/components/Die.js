@@ -19,10 +19,10 @@ function Die({img, dx, rollDice, allRolls, addToRollBox, handleClick}) {
 
     function rollDice(maxnum) {
         let range = seedrandom()
-        let i = Math.round(range() * maxnum)
-        if(i === 0) {
-                i++
-        }
+        let i = Math.ceil(range() * maxnum)
+        // if(i === 0) {
+        //         i++
+        // }
         setRoll(i)
         let rollString = ` 1d${maxnum}: ${i}`
         addToRollBox(rollString)
