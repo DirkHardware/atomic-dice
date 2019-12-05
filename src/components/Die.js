@@ -3,10 +3,9 @@ import App from '../App.css'
 import {setallRolls} from './DiceContainer'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-function Die({img, dx, rollDice, allRolls, addToRollBox, handleClick}) {
+function Die({img, dx, allRolls, addToRollBox}) {
     let seedrandom = require('seedrandom');
 
-    const [roll, setRoll] = useState('Roll Me!')
     const [dnum, setDnum] = useState(1)
     const [mod, setMod] = useState(0)
 
@@ -23,7 +22,7 @@ function Die({img, dx, rollDice, allRolls, addToRollBox, handleClick}) {
         // if(i === 0) {
         //         i++
         // }
-        setRoll(i)
+        // setRoll(i)
         let rollString = ` 1d${maxnum}: ${i}`
         addToRollBox(rollString)
     }
