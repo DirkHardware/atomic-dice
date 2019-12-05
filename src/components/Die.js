@@ -4,21 +4,36 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function Die({img, dx, rollDice, addToRollBox}) {
     let seedrandom = require('seedrandom');
 
-    const [roll, setRoll] = useState('Roll Me!')
     const [dnum, setDnum] = useState(1)
     const [mod, setMod] = useState(0)
+
+    function diceUp(e) {
+        e.preventDefault();
+        let i = dnum + 1
+        setDnum(i)
+    }
+
+    function diceDown(e) {
+        e.preventDefault();
+        let i = dnum - 1
+        if(i < 1) {
+            setDnum(1)
+        }
+        else {
+            setDnum(i)
+        }
+
+    }
 
     function modUp(e) {
         e.preventDefault();
         let i = mod + 1
-        console.log(i)
         setMod(i)
     }
 
     function modDown(e) {
         e.preventDefault()
         let i = mod - 1 
-        console.log(i)
         setMod(i)
     }
 
@@ -30,7 +45,7 @@ function Die({img, dx, rollDice, addToRollBox}) {
 
     //The problem here is with the if/else statements
     function rollDice(dx, mod) {
-        console.log(mod)
+        // console.log(mod)
         let range = seedrandom()
         let i = Math.ceil(range() * dx)
         if (mod === 0){
@@ -54,9 +69,9 @@ function Die({img, dx, rollDice, addToRollBox}) {
                     Rolls
                 </div>
                 <div className='die-selector'>
-                    <button className='button-plus-minus'> - </button>
+                    <button className='button-plus-minus' onClick={diceDown}> - </button>
                     {dnum}
-                    <button className='button-plus-minus'> + </button>
+                    <button className='button-plus-minus' onClick={diceUp}> + </button>
                 </div>
                 <img className='die-img' src={img} onClick={clickRoll}/>
                 <div className='indicator'>
