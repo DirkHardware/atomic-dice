@@ -10,27 +10,19 @@ function Die({img, dx, rollDice, allRolls, addToRollBox, handleClick}) {
     const [dnum, setDnum] = useState(1)
     const [mod, setMod] = useState(0)
 
-    function modUp(e) {
-        e.preventDefault();
-        let i = mod + 1
-        setMod(i)
-    }
 
-    function modDown(e) {
-        e.preventDefault()
-        let i = mod - 1 
-        setMod(i)
-    }
-
-    function clickRoll(e) {
+    function handleClick(e) {
         e.preventDefault();
-        // console.log(dx)
+        console.log(dx)
         rollDice(dx)
     }
 
     function rollDice(maxnum) {
         let range = seedrandom()
         let i = Math.ceil(range() * maxnum)
+        // if(i === 0) {
+        //         i++
+        // }
         setRoll(i)
         let rollString = ` 1d${maxnum}: ${i}`
         addToRollBox(rollString)
@@ -47,14 +39,14 @@ function Die({img, dx, rollDice, allRolls, addToRollBox, handleClick}) {
                     {dnum}
                     <button className='button-plus-minus'> + </button>
                 </div>
-                <img className='die-img' src={img} onClick={clickRoll}/>
+                <img className='die-img' src={img} onClick={handleClick}/>
                 <div className='indicator'>
                     Modifier
                 </div>
                 <div className='die-selector'>
-                    <button className='button-plus-minus' onClick={modDown}> - </button>
+                    <button className='button-plus-minus'> - </button>
                     {mod}
-                    <button className='button-plus-minus' onClick={modUp}> + </button>
+                    <button className='button-plus-minus'> + </button>
                 </div>
             </div>
             {/* {roll} */}
