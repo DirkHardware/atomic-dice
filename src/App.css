@@ -40,7 +40,8 @@
   align-items: center;
   margin-left: 2%;
   margin-right: 2%;
-  margin-bottom: 2%;  
+  margin-bottom: 2%;
+  margin-top: 2%;  
   flex-wrap: wrap;
 }
 
@@ -56,7 +57,9 @@
 }
 
 .die-selector {
-  display: flex
+  display: flex;
+  margin-bottom: 2%;
+  margin-top: 2%;  
 }
 
 .dice-container {
@@ -70,9 +73,9 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  justify-items: center;
+  /* justify-items: center; */
   align-items: center;
-  justify-items: center;
+  /* justify-items: center; */
 }
 
 .roll-field {
