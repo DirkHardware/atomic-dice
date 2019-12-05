@@ -13,27 +13,41 @@ function Die({img, dx, rollDice, allRolls, addToRollBox, handleClick}) {
     function modUp(e) {
         e.preventDefault();
         let i = mod + 1
+        console.log(i)
         setMod(i)
     }
 
     function modDown(e) {
         e.preventDefault()
         let i = mod - 1 
+        console.log(i)
         setMod(i)
     }
 
     function clickRoll(e) {
         e.preventDefault();
         // console.log(dx)
-        rollDice(dx)
+        rollDice(dx, mod)
     }
 
-    function rollDice(maxnum) {
+    //The problem here is with the if/else statements
+    function rollDice(dx, mod) {
+        console.log(mod)
         let range = seedrandom()
-        let i = Math.ceil(range() * maxnum)
+        let i = Math.ceil(range() * dx)
         setRoll(i)
-        let rollString = ` 1d${maxnum}: ${i}`
-        addToRollBox(rollString)
+        if (mod === 0){
+            let rollString = ` 1d${dx}: ${i}`
+            addToRollBox(rollString)
+        }
+        else if (mod < 0) {
+            let rollString = ` 1d${dx}${mod}: ${i-mod}`
+            addToRollBox(rollString)
+        }
+        else if (mod > 0) {
+            let rollString = ` 1d${dx}+${mod}: ${i+mod}`
+            addToRollBox(rollString)
+        }
     }
 
     return(
