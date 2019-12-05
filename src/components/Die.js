@@ -1,9 +1,7 @@
 import React, {useState} from 'react';
-import App from '../App.css'
-import {setallRolls} from './DiceContainer'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-function Die({img, dx, rollDice, allRolls, addToRollBox, handleClick}) {
+function Die({img, dx, rollDice, addToRollBox}) {
     let seedrandom = require('seedrandom');
 
     const [roll, setRoll] = useState('Roll Me!')
@@ -35,7 +33,6 @@ function Die({img, dx, rollDice, allRolls, addToRollBox, handleClick}) {
         console.log(mod)
         let range = seedrandom()
         let i = Math.ceil(range() * dx)
-        setRoll(i)
         if (mod === 0){
             let rollString = ` 1d${dx}: ${i}`
             addToRollBox(rollString)
@@ -71,7 +68,6 @@ function Die({img, dx, rollDice, allRolls, addToRollBox, handleClick}) {
                     <button className='button-plus-minus' onClick={modUp}> + </button>
                 </div>
             </div>
-            {/* {roll} */}
         </div>
     );
 
