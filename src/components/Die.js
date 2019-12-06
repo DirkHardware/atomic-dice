@@ -11,6 +11,7 @@ function Die({img, dx, rollDice, addToRollBox}) {
         e.preventDefault();
         let i = dnum + 1
         setDnum(i)
+        console.log(dnum)
     }
 
     function diceDown(e) {
@@ -22,6 +23,7 @@ function Die({img, dx, rollDice, addToRollBox}) {
         else {
             setDnum(i)
         }
+        console.log(dnum)
 
     }
 
@@ -50,8 +52,6 @@ function Die({img, dx, rollDice, addToRollBox}) {
 
     //The problem here is with the if/else statements
     function rollDice(dx, mod) {
-        // console.log(mod)
-
         let range = seedrandom()
         let i = Math.ceil(range() * dx)
         if (mod === 0){
@@ -69,20 +69,30 @@ function Die({img, dx, rollDice, addToRollBox}) {
     }
 
     function rollCumulative(dx, mod, dnum) {
+        console.log("dx: ", dx)
+        console.log("dnum: ", dnum)
+        console.log("mod: ", mod)
         let range = seedrandom();
         if (mod > 0) {
-        let rollString = ` ${dnum}d${dx}:`;
+            let rollString= ` ${dnum}d${dx} ${mod}:`;
+            addToRollBox(rollString)
+        }
+        else if (mod > 0) {
+            let rollString= ` ${dnum}d${dx}+${mod}:`;
+            addToRollBox(rollString)
+        }
+        else {
+            let rollString= ` ${dnum}d${dx}:`;
+            addToRollBox(rollString)
         }
         let j = 0
-        for ( i= 0; i < dnum; i++) {
-            let roll 
-            let string
-            roll = Math.ceil(range() * dx)
-            let moddedroll = roll - mod
-            string = `` 
-            let rollString = rollString.concat(` ${ moddedroll},`)
-        } 
-        let i = Math.cei
+        for ( let i= 0; i < dnum; i++) {
+            let roll = Math.ceil(range() * dx)
+            let moddedRoll = roll - mod
+            j = j + moddedRoll
+            addToRollBox(` ${moddedRoll}.`)
+        }
+        addToRollBox(`: ${j}`)
     }
 
     return(

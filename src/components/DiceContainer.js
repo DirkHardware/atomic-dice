@@ -32,7 +32,6 @@ class DiceContainer extends React.Component {
 
     addToRollBox = roll => {
         this.setState({allGlobalRolls: this.state.allGlobalRolls.concat(roll)})
-        console.log(this.state.allGlobalRolls)
     }
 
     render(){
