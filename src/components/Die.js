@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { moveCursor } from 'readline';
 
 function Die({img, dx, rollDice, addToRollBox}) {
     let seedrandom = require('seedrandom');
@@ -52,6 +51,7 @@ function Die({img, dx, rollDice, addToRollBox}) {
     //The problem here is with the if/else statements
     function rollDice(dx, mod) {
         // console.log(mod)
+
         let range = seedrandom()
         let i = Math.ceil(range() * dx)
         if (mod === 0){
@@ -71,10 +71,12 @@ function Die({img, dx, rollDice, addToRollBox}) {
     function rollCumulative(dx, mod, dnum) {
         let range = seedrandom();
         if (mod > 0) {
-            let rollString = ` ${dnum}d${dx}:`;
+        let rollString = ` ${dnum}d${dx}:`;
         }
         let j = 0
         for ( i= 0; i < dnum; i++) {
+            let roll 
+            let string
             roll = Math.ceil(range() * dx)
             let moddedroll = roll - mod
             string = `` 
