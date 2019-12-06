@@ -40,12 +40,18 @@ function Die({img, dx, rollDice, addToRollBox}) {
     function clickRoll(e) {
         e.preventDefault();
         // console.log(dx)
-        rollDice(dx, mod)
+        let i = dnum
+        if (dnum > 1) {
+            rollCumulative(dx, mod, dnum)
+        }
+        else {rollDice(dx, mod)
+        }
     }
 
     //The problem here is with the if/else statements
     function rollDice(dx, mod) {
         // console.log(mod)
+
         let range = seedrandom()
         let i = Math.ceil(range() * dx)
         if (mod === 0){
@@ -60,6 +66,23 @@ function Die({img, dx, rollDice, addToRollBox}) {
             let rollString = ` 1d${dx}+${mod}: ${i+mod}`
             addToRollBox(rollString)
         }
+    }
+
+    function rollCumulative(dx, mod, dnum) {
+        let range = seedrandom();
+        if (mod > 0) {
+        let rollString = ` ${dnum}d${dx}:`;
+        }
+        let j = 0
+        for ( i= 0; i < dnum; i++) {
+            let roll 
+            let string
+            roll = Math.ceil(range() * dx)
+            let moddedroll = roll - mod
+            string = `` 
+            let rollString = rollString.concat(` ${ moddedroll},`)
+        } 
+        let i = Math.cei
     }
 
     return(
