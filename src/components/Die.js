@@ -70,31 +70,55 @@ function Die({img, dx, rollDice, addToRollBox}) {
         }
     }
 
+
+    //Awesome! Culumulative rolls work! Now for some simple formatting
     function rollCumulative(dx, mod, dnum) {
         console.log("dx: ", dx)
         console.log("dnum: ", dnum)
         console.log("mod: ", mod)
         let range = seedrandom();
-        if (mod > 0) {
-            let rollString= ` ${dnum}d${dx} ${mod}:`;
-            addToRollBox(rollString)
+        let rollInfo;
+        let rollArray = []
+        let toPush;
+        let j = 0
+        if (mod === 0){
+            let rollInfo = ` 1d${dx}:`
+            // addToRollBox(rollString)
+            rollArray.push(rollInfo)
+        }
+        else if (mod < 0) {
+            let rollInfo = ` 1d${dx}${mod}:`
+            // addToRollBox(rollString)
+            rollArray.push(rollInfo)
+
         }
         else if (mod > 0) {
-            let rollString= ` ${dnum}d${dx}+${mod}:`;
-            addToRollBox(rollString)
+            let rollInfo = ` 1d${dx}+${mod}:`
+            // addToRollBox(rollString)
+            rollArray.push(rollInfo)
+
         }
-        else {
-            let rollString= ` ${dnum}d${dx}:`;
-            addToRollBox(rollString)
-        }
-        let j = 0
         for ( let i= 0; i < dnum; i++) {
             let roll = Math.ceil(range() * dx)
             let moddedRoll = roll - mod
+            if (mod === 0) {
+                toPush = roll
+                rollArray.push(toPush)
+            }
+            else if (mod < 0) {
+                toPush = ` ${roll}${mod}`
+                rollArray.push(toPush)
+            }
+            else if (mod > 0) {
+                toPush = ` ${roll}+${mod}`
+                rollArray.push(toPush)
+            }
             j = j + moddedRoll
-            addToRollBox(` ${moddedRoll}.`)
+            rollArray.push(` :${j}`)
+            // addToRollBox(` ${moddedRoll}`)
         }
-        addToRollBox(`: ${j}`)
+        console.log(rollArray)
+        addToRollBox(` ${rollArray}`)
     }
 
     return(
