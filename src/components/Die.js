@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+
+//hurfadurff
 function Die({img, dx, rollDice, addToRollBox}) {
     let seedrandom = require('seedrandom');
 
