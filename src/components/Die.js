@@ -114,9 +114,10 @@ function Die({img, dx, rollDice, addToRollBox}) {
                 rollArray.push(toPush)
             }
             j = j + moddedRoll
-            rollArray.push(` :${j}`)
+            // rollArray.push(` :${j}`)
             // addToRollBox(` ${moddedRoll}`)
         }
+        rollArray.push(` :${j}`)
         console.log(rollArray)
         addToRollBox(` ${rollArray}`)
     }
