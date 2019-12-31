@@ -8,11 +8,9 @@ function App() {
   return (
     <div className='App'>
       <div id="navbar" className='navbar-item'>
-        {/* this is a navbar */}
         <NavBar/>
       </div>
       <DiceContainer/>
-      {/* <RollBox/> */}
     </div>
   );
 }
