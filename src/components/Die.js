@@ -1,8 +1,11 @@
 import React, {useState} from 'react';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
+import '../App.scss';
+import {Container, Row, Col, Navbar, NavDropdown, Card,  } from 'react-bootstrap';
 
 
-//hurfadurff
+//I'm sick
 function Die({img, dx, rollDice, addToRollBox}) {
     let seedrandom = require('seedrandom');
 

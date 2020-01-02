@@ -78,6 +78,15 @@
   /* justify-items: center; */
 }
 
+.navbar {
+  display: flex; 
+  justify-content: left;
+  align-content: space-between;
+  flex-direction: row;
+  align-items: flex-start;
+  order: 0;
+}
+
 .roll-field {
   resize: none;
   font-size: 15px;
