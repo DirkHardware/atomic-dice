@@ -83,7 +83,8 @@
   justify-content: left;
   align-content: space-between;
   flex-direction: row;
-  background-color: blue;
+  align-items: flex-start;
+  order: 0;
 }
 
 .roll-field {

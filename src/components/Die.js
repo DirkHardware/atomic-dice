@@ -1,5 +1,8 @@
 import React, {useState} from 'react';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
+import '../App.scss';
+import {Container, Row, Col, Navbar, NavDropdown, Card,  } from 'react-bootstrap';
 
 
 //I'm sick
