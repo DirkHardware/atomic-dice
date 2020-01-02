@@ -78,6 +78,14 @@
   /* justify-items: center; */
 }
 
+.navbar {
+  display: flex; 
+  justify-content: left;
+  align-content: space-between;
+  flex-direction: row;
+  background-color: blue;
+}
+
 .roll-field {
   resize: none;
   font-size: 15px;

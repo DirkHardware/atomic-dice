@@ -2,14 +2,17 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import DiceContainer from './components/DiceContainer.js';
-import NavBar from './components/NavBar.js'
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+// import './App.scss';
+import {Container, Row, Col, Navbar } from 'react-bootstrap';
 
 function App() {
   return (
     <div className='App'>
-      <div id="navbar" className='navbar-item'>
-        <NavBar/>
-      </div>
+      <Navbar>
+        <Navbar.Brand><strong>Atomic Dice</strong></Navbar.Brand>
+      </Navbar>
       <DiceContainer/>
     </div>
   );
