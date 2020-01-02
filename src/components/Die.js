@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../App.scss';
-import {Container, Row, Col, Navbar, NavDropdown, Card,  } from 'react-bootstrap';
+import {Container, Row, Col, Navbar, NavDropdown, Nav, Card,  } from 'react-bootstrap';
 
 
 //I'm sick
@@ -127,25 +127,35 @@ function Die({img, dx, rollDice, addToRollBox}) {
 
     return(
         <div className='die'>
-            <div className='die-details'>
-                <div className='indicator'>
-                    Rolls
+            <Card style={{ width: '170px'}}>
+                {/* <Nav variant="tabs" defaultActiveKey="#first">
+                    <Nav.Item style={{ width: '85px'}}>
+                        <Nav.Link href="#first">Roll</Nav.Link>
+                    </Nav.Item>
+                    <Nav.Item style={{ width: '85px'}}>
+                        <Nav.Link href="#link">Pref</Nav.Link>
+                    </Nav.Item>
+                </Nav> */}
+                <div className='die-details'>
+                    <div className='indicator'>
+                        Rolls
+                    </div>
+                    <div className='die-selector'>
+                        <button className='button-plus-minus' onClick={diceDown}> - </button>
+                        {dnum}
+                        <button className='button-plus-minus' onClick={diceUp}> + </button>
+                    </div>
+                    <img className='die-img' src={img} onClick={clickRoll}/>
+                    <div className='indicator'>
+                        Modifier
+                    </div>
+                    <div className='die-selector'>
+                        <button className='button-plus-minus' onClick={modDown}> - </button>
+                        {mod}
+                        <button className='button-plus-minus' onClick={modUp}> + </button>
+                    </div>
                 </div>
-                <div className='die-selector'>
-                    <button className='button-plus-minus' onClick={diceDown}> - </button>
-                    {dnum}
-                    <button className='button-plus-minus' onClick={diceUp}> + </button>
-                </div>
-                <img className='die-img' src={img} onClick={clickRoll}/>
-                <div className='indicator'>
-                    Modifier
-                </div>
-                <div className='die-selector'>
-                    <button className='button-plus-minus' onClick={modDown}> - </button>
-                    {mod}
-                    <button className='button-plus-minus' onClick={modUp}> + </button>
-                </div>
-            </div>
+            </Card>
         </div>
     );
 
