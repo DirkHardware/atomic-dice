@@ -130,14 +130,16 @@ function Die({img, dx, rollDice, addToRollBox}) {
         <div className='die'>
             <Card style={{ width: '120px'}}>
                 <Card.Header>
-                    <Nav variant="pills" defaultActiveKey="#first">
-                        <Nav.Item style={{ width: '85px'}}>
-                            <Nav.Link href="#first">Roll</Nav.Link>
-                        </Nav.Item>
-                        <Nav.Item style={{ width: '85px'}}>
-                            <Nav.Link href="#link">Pref</Nav.Link>
-                        </Nav.Item>
-                    </Nav>
+                    <div className="navtabs">
+                        <Nav variant="pills" defaultActiveKey="#first">
+                            <Nav.Item style={{ width: '85px'}}>
+                                <Nav.Link href="#first">Roll</Nav.Link>
+                            </Nav.Item>
+                            <Nav.Item style={{ width: '85px'}}>
+                                <Nav.Link href="#link">Pref</Nav.Link>
+                            </Nav.Item>
+                        </Nav>
+                    </div>
                 </Card.Header>
                 <div className='die-details'>
                     <div className='indicator'>

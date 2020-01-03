@@ -60,6 +60,7 @@
   display: flex;
   margin-bottom: 2%;
   margin-top: 2%;  
+  margin-right: 10%;
 }
 
 .dice-container {
@@ -69,7 +70,7 @@
 }
 
 .indicator {
-  margin-left: 10%;
+  margin-left: 7%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -96,4 +97,9 @@
 .num {
   margin-left: 6.4%;
   margin-right: 10%
+}
+
+.navtabs {
+  justify-items: center;
+  margin-left: 6%
 }
