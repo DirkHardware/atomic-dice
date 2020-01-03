@@ -163,9 +163,9 @@ function Die({img, dx, rollDice, addToRollBox}) {
                         <button className='button-plus-minus' onClick={modUp}> + </button> */}
                         <ButtonToolbar aria-label="Toolbar with button groups">
                             <ButtonGroup className="mr-2" aria-label="First group">
-                                <Button className='button-plus-minus' onClick={diceDown}> - </Button>
+                                <Button className='button-plus-minus' onClick={modDown}> - </Button>
                                 {mod}
-                                <Button className='button-plus-minus' onClick={diceUp}> + </Button>
+                                <Button className='button-plus-minus' onClick={modUp}> + </Button>
                             </ButtonGroup>
                         </ButtonToolbar>
                     </div>
