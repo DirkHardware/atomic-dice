@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../App.scss';
-import {Container, Row, Col, Navbar, NavDropdown, Nav, Card, Button } from 'react-bootstrap';
+import {Container, Row, Col, Navbar, NavDropdown, Nav, Card, Button, ButtonToolbar, ButtonGroup} from 'react-bootstrap';
 
 
 //I'm sick
@@ -144,9 +144,13 @@ function Die({img, dx, rollDice, addToRollBox}) {
                         Rolls
                     </div>
                     <div className='die-selector'>
-                        <button className='button-plus-minus' onClick={diceDown}> - </button>
-                        {dnum}
-                        <button className='button-plus-minus' onClick={diceUp}> + </button>
+                        <ButtonToolbar aria-label="Toolbar with button groups">
+                            <ButtonGroup className="mr-2" aria-label="First group">
+                                <Button className='button-plus-minus' onClick={diceDown}> - </Button>
+                                {dnum}
+                                <Button className='button-plus-minus' onClick={diceUp}> + </Button>
+                            </ButtonGroup>
+                        </ButtonToolbar>
                     </div>
                     {/* <img className='die-img' src={img} onClick={clickRoll}/> */}
                     <Card.Img variant="top" src={img}/>
@@ -154,9 +158,16 @@ function Die({img, dx, rollDice, addToRollBox}) {
                         Modifier
                     </div>
                     <div className='die-selector'>
-                        <button className='button-plus-minus' onClick={modDown}> - </button>
+                        {/* <button className='button-plus-minus' onClick={modDown}> - </button>
                         {mod}
-                        <button className='button-plus-minus' onClick={modUp}> + </button>
+                        <button className='button-plus-minus' onClick={modUp}> + </button> */}
+                        <ButtonToolbar aria-label="Toolbar with button groups">
+                            <ButtonGroup className="mr-2" aria-label="First group">
+                                <Button className='button-plus-minus' onClick={diceDown}> - </Button>
+                                {mod}
+                                <Button className='button-plus-minus' onClick={diceUp}> + </Button>
+                            </ButtonGroup>
+                        </ButtonToolbar>
                     </div>
                 </div>
             </Card>
