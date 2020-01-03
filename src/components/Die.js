@@ -147,13 +147,13 @@ function Die({img, dx, rollDice, addToRollBox}) {
                         <ButtonToolbar aria-label="Toolbar with button groups">
                             <ButtonGroup className="mr-2" aria-label="First group">
                                 <Button className='button-plus-minus' onClick={diceDown}> - </Button>
-                                {dnum}
+                                <div className='num'>{dnum}</div>
                                 <Button className='button-plus-minus' onClick={diceUp}> + </Button>
                             </ButtonGroup>
                         </ButtonToolbar>
                     </div>
                     {/* <img className='die-img' src={img} onClick={clickRoll}/> */}
-                    <Card.Img variant="top" src={img}/>
+                    <Card.Img variant="top" src={img} onClick={clickRoll}/>
                     <div className='indicator'>
                         Modifier
                     </div>
@@ -164,7 +164,7 @@ function Die({img, dx, rollDice, addToRollBox}) {
                         <ButtonToolbar aria-label="Toolbar with button groups">
                             <ButtonGroup className="mr-2" aria-label="First group">
                                 <Button className='button-plus-minus' onClick={modDown}> - </Button>
-                                {mod}
+                                <div className='num'>{mod}</div>
                                 <Button className='button-plus-minus' onClick={modUp}> + </Button>
                             </ButtonGroup>
                         </ButtonToolbar>
