@@ -11,7 +11,7 @@ function Die({img, dx, rollDice, addToRollBox}) {
 
     const [dnum, setDnum] = useState(1)
     const [mod, setMod] = useState(0)
-    const [tab, setTab] = 
+    const [tab, setTab] = useState("roll")
 
     function diceUp(e) {
         e.preventDefault();
