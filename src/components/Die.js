@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../App.scss';
-import {Container, Row, Col, Navbar, NavDropdown, Nav, Card,  } from 'react-bootstrap';
+import {Container, Row, Col, Navbar, NavDropdown, Nav, Card, Button } from 'react-bootstrap';
 
 
 //I'm sick
@@ -11,12 +11,13 @@ function Die({img, dx, rollDice, addToRollBox}) {
 
     const [dnum, setDnum] = useState(1)
     const [mod, setMod] = useState(0)
+    const [tab, setTab] = 
 
     function diceUp(e) {
         e.preventDefault();
         let i = dnum + 1
         setDnum(i)
-        console.log(dnum)
+        // console.log(dnum)
     }
 
     function diceDown(e) {
@@ -28,7 +29,7 @@ function Die({img, dx, rollDice, addToRollBox}) {
         else {
             setDnum(i)
         }
-        console.log(dnum)
+        // console.log(dnum)
 
     }
 
@@ -127,15 +128,17 @@ function Die({img, dx, rollDice, addToRollBox}) {
 
     return(
         <div className='die'>
-            <Card style={{ width: '170px'}}>
-                {/* <Nav variant="tabs" defaultActiveKey="#first">
-                    <Nav.Item style={{ width: '85px'}}>
-                        <Nav.Link href="#first">Roll</Nav.Link>
-                    </Nav.Item>
-                    <Nav.Item style={{ width: '85px'}}>
-                        <Nav.Link href="#link">Pref</Nav.Link>
-                    </Nav.Item>
-                </Nav> */}
+            <Card style={{ width: '120px'}}>
+                <Card.Header>
+                    <Nav variant="pills" defaultActiveKey="#first">
+                        <Nav.Item style={{ width: '85px'}}>
+                            <Nav.Link href="#first">Roll</Nav.Link>
+                        </Nav.Item>
+                        <Nav.Item style={{ width: '85px'}}>
+                            <Nav.Link href="#link">Pref</Nav.Link>
+                        </Nav.Item>
+                    </Nav>
+                </Card.Header>
                 <div className='die-details'>
                     <div className='indicator'>
                         Rolls
@@ -145,7 +148,8 @@ function Die({img, dx, rollDice, addToRollBox}) {
                         {dnum}
                         <button className='button-plus-minus' onClick={diceUp}> + </button>
                     </div>
-                    <img className='die-img' src={img} onClick={clickRoll}/>
+                    {/* <img className='die-img' src={img} onClick={clickRoll}/> */}
+                    <Card.Img variant="top" src={img}/>
                     <div className='indicator'>
                         Modifier
                     </div>
