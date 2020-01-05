@@ -104,7 +104,7 @@ function Die({img, dx, rollDice, addToRollBox}) {
         }
         for ( let i= 0; i < dnum; i++) {
             let roll = Math.ceil(range() * dx)
-            let moddedRoll = roll - mod
+            let moddedRoll = roll + mod
             if (mod === 0) {
                 toPush = roll
                 rollArray.push(toPush)
