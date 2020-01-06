@@ -34,7 +34,7 @@ class DiceContainer extends React.Component {
     }
 
     // componentDidUpdate() {
-    //     this.
+    //     this.allCheers =
     // }
 
     addToRollBox = roll => {
