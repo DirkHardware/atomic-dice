@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import Die from './Die.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {Toast} from 'react-bootstrap';
+
 
 
 class DiceContainer extends React.Component {
@@ -17,6 +19,7 @@ class DiceContainer extends React.Component {
             {dx: 4, img: 'https://www.gamesquest.co.uk/media/catalog/product/cache/1/thumbnail/600x/17f82f742ffe127f42dca9de82fb58b1/d/g/dgdjbpo4rdg_-sale-4_sided_jumbo_opaque_dice_red_-_sale-dgdjbpo4rdg.jpg'}
         ],
         allGlobalRolls: [],
+        allCheers: [],
         allDice: []
     }
 
@@ -30,8 +33,25 @@ class DiceContainer extends React.Component {
             )})
     }
 
+    // componentDidUpdate() {
+    //     this.
+    // }
+
     addToRollBox = roll => {
-        this.setState({allGlobalRolls: this.state.allGlobalRolls.concat(roll)})
+        let newRolls = this.state.allGlobalRolls
+        newRolls.push(roll)
+        this.setState({allGlobalRolls: newRolls})
+        console.log(this.state.allGlobalRolls)
+        console.log(newRolls)
+        this.setState({allToasts: this.state.allGlobalRolls.map(roll =>
+            <Toast>
+                <Toast.Header>
+                    <img src="holder.js/20x20?text=%20" className="rounded mr-2" alt="" />
+                    <strong className="mr-auto">{roll.roll}</strong>
+                    <small>11 mins ago</small>
+                </Toast.Header>
+                <Toast.Body>{roll.outcome}</Toast.Body>
+            </Toast>)})
     }
 
     render(){
@@ -43,12 +63,12 @@ class DiceContainer extends React.Component {
                     {this.state.allDice}
                 </div>
                 <div>
-                    <form>
+                    {/* <form>
                             <textarea className='roll-field' rows='8' cols='180' type='text' name='rolls' value={this.state.allGlobalRolls}/>
                         <div>
                             <button className='clear-button'>Clear</button>
                         </div>
-                    </form>   
+                    </form>    */}
                 </div>
             </div>
         )

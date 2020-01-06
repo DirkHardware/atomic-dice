@@ -62,15 +62,28 @@ function Die({img, dx, rollDice, addToRollBox}) {
         let i = Math.ceil(range() * dx)
         if (mod === 0){
             let rollString = ` 1d${dx}: ${i}`
-            addToRollBox(rollString)
+            addToRollBox({
+                        'roll': `1d${dx}`,
+                        'outcome': {i}    
+            })
+            // console.log({
+            //             'roll': `1d${dx}`,
+            //             'outcome': {i}    
+            // })
         }
         else if (mod < 0) {
             let rollString = ` 1d${dx}${mod}: ${i-mod}`
-            addToRollBox(rollString)
+            addToRollBox({
+                'roll': `1d${dx}${mod}`,
+                'outcome': {i}-{mod}  
+            })
         }
         else if (mod > 0) {
-            let rollString = ` 1d${dx}+${mod}: ${i+mod}`
-            addToRollBox(rollString)
+            let rollString = ` 1d${dx}${mod}: ${i-mod}`
+            addToRollBox({
+                'roll': `1d${dx}${mod}`,
+                'outcome': {i}+{mod}  
+            })
         }
     }
 
