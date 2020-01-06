@@ -64,7 +64,7 @@ function Die({img, dx, rollDice, addToRollBox}) {
             let rollString = ` 1d${dx}: ${i}`
             addToRollBox({
                         'roll': `1d${dx}`,
-                        'outcome': {i}    
+                        'outcome': i    
             })
             // console.log({
             //             'roll': `1d${dx}`,

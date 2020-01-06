@@ -19,7 +19,7 @@ class DiceContainer extends React.Component {
             {dx: 4, img: 'https://www.gamesquest.co.uk/media/catalog/product/cache/1/thumbnail/600x/17f82f742ffe127f42dca9de82fb58b1/d/g/dgdjbpo4rdg_-sale-4_sided_jumbo_opaque_dice_red_-_sale-dgdjbpo4rdg.jpg'}
         ],
         allGlobalRolls: [],
-        allCheers: [],
+        allToasts: [],
         allDice: []
     }
 
@@ -31,18 +31,23 @@ class DiceContainer extends React.Component {
                 addToRollBox={this.addToRollBox}
             />
             )})
+        this.setState({allToasts: 
+                <Toast>
+                    <Toast.Header>
+                        <img src="holder.js/20x20?text=%20" className="rounded mr-2" alt="" />
+                        <strong className="mr-auto">Click any dice to roll!</strong>
+                    </Toast.Header>
+                    <Toast.Body>Do it!</Toast.Body>
+                </Toast>}
+        )
+        console.log(this.state.allToasts)
     }
-
-    // componentDidUpdate() {
-    //     this.allCheers =
-    // }
 
     addToRollBox = roll => {
         let newRolls = this.state.allGlobalRolls
+        let newToats = this.state.allToasts
         newRolls.push(roll)
         this.setState({allGlobalRolls: newRolls})
-        console.log(this.state.allGlobalRolls)
-        console.log(newRolls)
         this.setState({allToasts: this.state.allGlobalRolls.map(roll =>
             <Toast>
                 <Toast.Header>
@@ -51,7 +56,9 @@ class DiceContainer extends React.Component {
                     <small>11 mins ago</small>
                 </Toast.Header>
                 <Toast.Body>{roll.outcome}</Toast.Body>
-            </Toast>)})
+            </Toast>)})        
+        console.log(this.state.allGlobalRolls)
+        console.log(newRolls)
     }
 
     render(){
@@ -63,6 +70,8 @@ class DiceContainer extends React.Component {
                     {this.state.allDice}
                 </div>
                 <div>
+                    {this.state.allToasts}
+                    {/* {this.state.allToasts} */}
                     {/* <form>
                             <textarea className='roll-field' rows='8' cols='180' type='text' name='rolls' value={this.state.allGlobalRolls}/>
                         <div>
