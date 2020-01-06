@@ -1,3 +1,8 @@
+body {
+  background-image: url('https://media.azpm.org/master/image/2017/5/9/hero/refuel-pool.jpg');
+  /* background-color: #cccccc; */
+ }
+
 .App {
   text-align: center;
   display: flex;
@@ -8,9 +13,11 @@
 
 .all-dice {
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  font-size: 20px
+  justify-items: flex-end;
+  flex-direction: row;
+  align-content: space-between;
+  font-size: 20px;
+  width: 60%;
 }
 
 .button-plus-minus {
@@ -65,7 +72,9 @@
 
 .dice-container {
   display: flex;
-  flex-direction: column;
+  /* justify-items: flex-end; */
+  flex-direction: row;
+  /* align-content: space-between; */
   /* flex-wrap: wrap; */
 }
 
@@ -102,4 +111,9 @@
 .navtabs {
   justify-items: center;
   margin-left: 6%
+}
+
+.toasts {
+  justify-items: flex-end;
+  order: 0;
 }

@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import Die from './Die.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Toast} from 'react-bootstrap';
+import {Toast, Row, Col} from 'react-bootstrap';
 
 
 
@@ -45,20 +45,18 @@ class DiceContainer extends React.Component {
 
     addToRollBox = roll => {
         let newRolls = this.state.allGlobalRolls
-        let newToats = this.state.allToasts
-        newRolls.push(roll)
+        newRolls.unshift(roll)
         this.setState({allGlobalRolls: newRolls})
         this.setState({allToasts: this.state.allGlobalRolls.map(roll =>
             <Toast>
                 <Toast.Header>
                     <img src="holder.js/20x20?text=%20" className="rounded mr-2" alt="" />
                     <strong className="mr-auto">{roll.roll}</strong>
-                    <small>11 mins ago</small>
                 </Toast.Header>
                 <Toast.Body>{roll.outcome}</Toast.Body>
             </Toast>)})        
-        console.log(this.state.allGlobalRolls)
-        console.log(newRolls)
+        // console.log(this.state.allGlobalRolls)
+        // console.log(newRolls)
     }
 
     render(){
@@ -66,18 +64,24 @@ class DiceContainer extends React.Component {
             //It turns out the css problem was that flex started at the ege of the roll field. Perhaps seperate them so that
             //roll field isn't a child of dice container? 
             <div className='dice-container'>
-                <div id="all-dice" className="all-dice">
+                 <Row className='all-dice'>
+                {/* <div id="all-dice" className="all-dice"> */}
                     {this.state.allDice}
-                </div>
-                <div>
-                    {this.state.allToasts}
-                    {/* {this.state.allToasts} */}
-                    {/* <form>
-                            <textarea className='roll-field' rows='8' cols='180' type='text' name='rolls' value={this.state.allGlobalRolls}/>
-                        <div>
-                            <button className='clear-button'>Clear</button>
-                        </div>
-                    </form>    */}
+                {/* </div> */}
+                {/* <div className='toasts'> */}
+                </Row>
+                <div className='toasts'>
+                    <Col class='flex-end'>
+                        {this.state.allToasts}
+                        {/* {this.state.allToasts} */}
+                        {/* <form>
+                                <textarea className='roll-field' rows='8' cols='180' type='text' name='rolls' value={this.state.allGlobalRolls}/>
+                            <div>
+                                <button className='clear-button'>Clear</button>
+                            </div>
+                        </form>    */}
+                    {/* </div> */}
+                    </Col>
                 </div>
             </div>
         )

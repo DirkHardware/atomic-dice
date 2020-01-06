@@ -12,10 +12,9 @@ function App() {
 
 
   return (
-    <div className='App'>
-      <div className='navbar'>
+    <div>
       <Navbar bg="light" expand="lg" class="rounded">
-        <Navbar.Brand><strong>Atomic Dice</strong></Navbar.Brand>
+      <Navbar.Brand><strong>Atomic Dice</strong></Navbar.Brand>
       <NavDropdown title="Dropdown" id="basic-nav-dropdown">
         <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
         <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
@@ -24,8 +23,10 @@ function App() {
         <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
       </NavDropdown>
       </Navbar>
+    <div/>
+      <div className='App'>
+        <DiceContainer/>
       </div>
-      <DiceContainer/>
     </div>
   );
 }

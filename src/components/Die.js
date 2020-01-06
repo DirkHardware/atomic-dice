@@ -141,7 +141,7 @@ function Die({img, dx, rollDice, addToRollBox}) {
 
     return(
         <div className='die'>
-            <Card style={{ width: '120px'}}>
+            <Card style={{ width: '200px'}}>
                 <Card.Header>
                     <div className="navtabs">
                         <Nav variant="pills" defaultActiveKey="#first">
