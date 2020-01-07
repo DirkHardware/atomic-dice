@@ -61,7 +61,7 @@ function Die({img, dx, rollDice, addToRollBox}) {
         let range = seedrandom()
         let i = Math.ceil(range() * dx)
         if (mod === 0){
-            let rollString = ` 1d${dx}: ${i}`
+            // let rollString = ` 1d${dx}: ${i}`
             addToRollBox({
                         'roll': `1d${dx}`,
                         'outcome': i    
@@ -136,7 +136,9 @@ function Die({img, dx, rollDice, addToRollBox}) {
         }
         rollArray.push(` :${j}`)
         console.log(rollArray)
-        addToRollBox(` ${rollArray}`)
+        addToRollBox({
+            'roll':{}  
+        })
     }
 
     return(
