@@ -14,7 +14,7 @@ function App() {
   return (
     <div>
       <Navbar bg="light" expand="lg" class="rounded">
-      <Navbar.Brand><strong>Atomic Dice</strong></Navbar.Brand>
+      <Navbar.Brand ><div className='brand'><strong>Atomic Dice</strong></div></Navbar.Brand>
       <NavDropdown title="Dropdown" id="basic-nav-dropdown">
         <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
         <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>

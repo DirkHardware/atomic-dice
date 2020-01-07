@@ -141,16 +141,18 @@ function Die({img, dx, rollDice, addToRollBox}) {
 
     return(
         <div className='die'>
-            <Card style={{ width: '200px'}}>
+            <Card stripped bg='dark' style={{ width: '200px'}}>
                 <Card.Header>
                     <div className="navtabs">
                         <Nav variant="pills" defaultActiveKey="#first">
+                            <Row>
                             <Nav.Item style={{ width: '85px'}}>
                                 <Nav.Link href="#first">Roll</Nav.Link>
                             </Nav.Item>
                             <Nav.Item style={{ width: '85px'}}>
                                 <Nav.Link href="#link">Pref</Nav.Link>
                             </Nav.Item>
+                            </Row>
                         </Nav>
                     </div>
                 </Card.Header>

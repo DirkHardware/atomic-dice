@@ -71,7 +71,7 @@ class DiceContainer extends React.Component {
                 {/* <div className='toasts'> */}
                 </Row>
                 <div className='toasts'>
-                    <Col class='flex-end'>
+                    <Col>
                         {this.state.allToasts}
                         {/* {this.state.allToasts} */}
                         {/* <form>
