@@ -99,20 +99,23 @@ function Die({img, dx, rollDice, addToRollBox}) {
         let toPush;
         let j = 0
         if (mod === 0){
-            let rollInfo = ` 1d${dx}:`
+            rollInfo = `${dnum}d${dx}`
             // addToRollBox(rollString)
-            rollArray.push(rollInfo)
+            // rollArray.push(rollInfo)
+            // return rollInfo
         }
         else if (mod < 0) {
-            let rollInfo = ` 1d${dx}${mod}:`
+            rollInfo = `${dnum}d${dx}${mod}`
             // addToRollBox(rollString)
-            rollArray.push(rollInfo)
+            // rollArray.push(rollInfo)
+            // return rollInfo
 
         }
         else if (mod > 0) {
-            let rollInfo = ` 1d${dx}+${mod}:`
+            rollInfo = `${dnum}d${dx}+${mod}`
             // addToRollBox(rollString)
-            rollArray.push(rollInfo)
+            // rollArray.push(rollInfo)
+            // return rollInfo
 
         }
         for ( let i= 0; i < dnum; i++) {
@@ -135,9 +138,15 @@ function Die({img, dx, rollDice, addToRollBox}) {
             // addToRollBox(` ${moddedRoll}`)
         }
         rollArray.push(` :${j}`)
-        console.log(rollArray)
+        console.log('rollInfo:', rollInfo)
+        // console.log('rollArray:', rollArray)
+        // let rollInfoString = rollInfo.toString()
+        let rollsOutcome = rollArray.toString()
+        // console.log('rollInfo:', rollInfoString)
+        console.log('rollsOutcome', rollsOutcome)
         addToRollBox({
-            'roll':{}  
+            'roll': `${rollInfo}`,
+            'outcome': `${rollsOutcome}` 
         })
     }
 
