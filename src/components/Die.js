@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../App.scss';
-import {Container, Row, Col, Navbar, NavDropdown, Nav, Card, Button, ButtonToolbar, ButtonGroup} from 'react-bootstrap';
+import {Row, Nav, NavDropdown, Card, Button, ButtonToolbar, ButtonGroup, DropdownButton, Dropdown} from 'react-bootstrap';
 
 
 //I'm sick
@@ -11,13 +11,23 @@ function Die({img, dx, rollDice, addToRollBox}) {
 
     const [dnum, setDnum] = useState(1)
     const [mod, setMod] = useState(0)
-    const [tab, setTab] = useState("roll")
+    const [rollType, setRollType] = useState(null)
+    // const [test, setTest] = useState('something1')
+
+    function testCumulative(){
+        console.log(rollType)
+        setRollType('cumulative')
+    }
+
+    function testAggregate(){
+        console.log(rollType)
+        setRollType('aggregate')
+    }
 
     function diceUp(e) {
         e.preventDefault();
         let i = dnum + 1
         setDnum(i)
-        // console.log(dnum)
     }
 
     function diceDown(e) {
@@ -66,20 +76,15 @@ function Die({img, dx, rollDice, addToRollBox}) {
                         'roll': `1d${dx}`,
                         'outcome': i    
             })
-            // console.log({
-            //             'roll': `1d${dx}`,
-            //             'outcome': {i}    
-            // })
+
         }
         else if (mod < 0) {
-            let rollString = ` 1d${dx}${mod}: ${i-mod}`
             addToRollBox({
                 'roll': `1d${dx}${mod}`,
                 'outcome': {i}-{mod}  
             })
         }
         else if (mod > 0) {
-            let rollString = ` 1d${dx}${mod}: ${i-mod}`
             addToRollBox({
                 'roll': `1d${dx}${mod}`,
                 'outcome': {i}+{mod}  
@@ -154,18 +159,33 @@ function Die({img, dx, rollDice, addToRollBox}) {
         <div className='die'>
             <Card stripped bg='dark' style={{ width: '200px'}}>
                 <Card.Header>
-                    <div className="navtabs">
+                    <DropdownButton drop='down' title={rollType}>
+                        <Dropdown.Item eventKey="1" onClick={testCumulative}>Cumulative Rolls</Dropdown.Item>
+                        <Dropdown.Item eventKey="2" onClick={testAggregate}>Aggregate Rolls</Dropdown.Item>
+                        <Dropdown.Item eventKey="3">Something else here</Dropdown.Item>
+                    </DropdownButton>
+                    {/* <div className="navtabs">
                         <Nav variant="pills" defaultActiveKey="#first">
-                            <Row>
-                            <Nav.Item style={{ width: '85px'}}>
+                            <Row> */}
+                            {/* <Nav.Item style={{ width: '85px'}}>
                                 <Nav.Link href="#first">Roll</Nav.Link>
                             </Nav.Item>
                             <Nav.Item style={{ width: '85px'}}>
                                 <Nav.Link href="#link">Pref</Nav.Link>
-                            </Nav.Item>
+                            </Nav.Item> */}
+                                {/* <NavDropdown title="Set PRNG" id="basic-nav-dropdown">
+                                    <DropdownButton drop='right'> Something
+                                        <DropdownButton.Item>Cumulative Rolls</DropdownButton.Item>
+                                        <DropdownButton.Item>Aggregate Rolls</DropdownButton.Item>
+                                    </DropdownButton>
+                                    <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
+                                    <NavDropdown.Item href="#action/3.3" onClick = {() => setTest("something2")}>{test}</NavDropdown.Item>
+                                    <NavDropdown.Divider/>
+                                    <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+                                </NavDropdown>
                             </Row>
-                        </Nav>
-                    </div>
+                        </Nav> */}
+                    {/* </div> */}
                 </Card.Header>
                 <div className='die-details'>
                     <div className='indicator'>
@@ -201,7 +221,6 @@ function Die({img, dx, rollDice, addToRollBox}) {
             </Card>
         </div>
     );
-
 }
 
 export default Die;

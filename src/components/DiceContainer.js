@@ -20,7 +20,7 @@ class DiceContainer extends React.Component {
         ],
         allGlobalRolls: [],
         allToasts: [],
-        allDice: []
+        allDice: [],
     }
 
     componentDidMount() {

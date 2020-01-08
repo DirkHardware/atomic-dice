@@ -30,6 +30,8 @@ body {
   align-content: space-between;
   font-size: 20px;
   width: 70%;
+  height: 100vh;
+  overflow-y: scroll;
 }
 
 .button-plus-minus {
