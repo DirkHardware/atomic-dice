@@ -11,7 +11,7 @@ function Die({img, dx, rollDice, addToRollBox}) {
 
     const [dnum, setDnum] = useState(1)
     const [mod, setMod] = useState(0)
-    const [rollType, setRollType] = useState(null)
+    const [rollType, setRollType] = useState("cumulative")
     // const [test, setTest] = useState('something1')
 
     function testCumulative(){
@@ -68,7 +68,7 @@ function Die({img, dx, rollDice, addToRollBox}) {
 
     //The problem here is with the if/else statements
     function rollDice(dx, mod) {
-        let range = seedrandom()
+        let range = seedrandom('added entropy.', { entropy: true })
         let i = Math.ceil(range() * dx)
         if (mod === 0){
             // let rollString = ` 1d${dx}: ${i}`
@@ -76,7 +76,6 @@ function Die({img, dx, rollDice, addToRollBox}) {
                         'roll': `1d${dx}`,
                         'outcome': i    
             })
-
         }
         else if (mod < 0) {
             addToRollBox({
@@ -98,7 +97,7 @@ function Die({img, dx, rollDice, addToRollBox}) {
         console.log("dx: ", dx)
         console.log("dnum: ", dnum)
         console.log("mod: ", mod)
-        let range = seedrandom();
+        let range = seedrandom('added entropy.', { entropy: true });
         let rollInfo;
         let rollArray = []
         let toPush;
@@ -162,7 +161,7 @@ function Die({img, dx, rollDice, addToRollBox}) {
                     <DropdownButton drop='down' title={rollType}>
                         <Dropdown.Item eventKey="1" onClick={testCumulative}>Cumulative Rolls</Dropdown.Item>
                         <Dropdown.Item eventKey="2" onClick={testAggregate}>Aggregate Rolls</Dropdown.Item>
-                        <Dropdown.Item eventKey="3">Something else here</Dropdown.Item>
+                        <Dropdown.Item eventKey="3">Accumulate entropy</Dropdown.Item>
                     </DropdownButton>
                     {/* <div className="navtabs">
                         <Nav variant="pills" defaultActiveKey="#first">
