@@ -40,8 +40,6 @@ function Die({img, dx, rollDice, addToRollBox}) {
         else {
             setDnum(i)
         }
-        // console.log(dnum)
-
     }
 
     function modUp(e) {
