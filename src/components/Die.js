@@ -5,7 +5,7 @@ import '../App.scss';
 import {Row, Nav, NavDropdown, Card, Button, ButtonToolbar, ButtonGroup, DropdownButton, Dropdown} from 'react-bootstrap';
 
 
-//lol
+//so tired
 
 function Die({img, dx, rollDice, addToRollBox}) {
     let seedrandom = require('seedrandom');
