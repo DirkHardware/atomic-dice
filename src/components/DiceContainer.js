@@ -7,6 +7,9 @@ import {Toast, Row, Col} from 'react-bootstrap';
 
 class DiceContainer extends React.Component {
 
+    //maybe we can add cumulative/aggregate variable to the diceTypes, and pass down a prop function that will rerender
+    //the components as a cumulative or aggregate when the function is run
+     
     state= {
         seedrandom: require('seedrandom'),
         diceTypes: [
