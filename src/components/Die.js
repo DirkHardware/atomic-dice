@@ -80,13 +80,13 @@ function Die({img, dx, rollDice, addToRollBox}) {
         else if (mod < 0) {
             addToRollBox({
                 'roll': `1d${dx}${mod}`,
-                'outcome': {i}-{mod}  
+                'outcome': `${i} ${mod}`  
             })
         }
         else if (mod > 0) {
             addToRollBox({
                 'roll': `1d${dx}${mod}`,
-                'outcome': {i}+{mod}  
+                'outcome': `${i}+${mod}`  
             })
         }
     }
