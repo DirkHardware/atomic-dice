@@ -6,24 +6,22 @@ import {Row, Nav, NavDropdown, Card, Button, ButtonToolbar, ButtonGroup, Dropdow
 import {useStore} from 'react-smee'
 
 
-//lol
+//so cold
 
 function Die({img, dx, rollDice, addToRollBox}) {
     let seedrandom = require('seedrandom');
 
     const [dnum, setDnum] = useState(1)
     const [mod, setMod] = useState(0)
-    const [rollType, setRollType] = useState("cumulative")
+    const [rollType, setRollType] = useState("Cumulative")
     // const [test, setTest] = useState('something1')
 
-    function testCumulative(){
-        console.log(rollType)
-        setRollType('cumulative')
+    function setCumulative(){
+        setRollType('Cumulative')
     }
 
-    function testAggregate(){
-        console.log(rollType)
-        setRollType('aggregate')
+    function setAggregate(){
+        setRollType('Aggregate')
     }
 
     function diceUp(e) {
@@ -59,15 +57,18 @@ function Die({img, dx, rollDice, addToRollBox}) {
         e.preventDefault();
         // console.log(dx)
         let i = dnum
-        if (dnum > 1) {
+        if (dnum > 1 && rollType === 'Cumulative') {
             rollCumulative(dx, mod, dnum)
         }
-        else {rollDice(dx, mod)
+        else if (dnum > 1 && rollType === 'Aggregate'){
+            rollAggregate(dx, mod, dnum)
+        }
+        else {rollOnce(dx, mod)
         }
     }
 
     //The problem here is with the if/else statements
-    function rollDice(dx, mod) {
+    function rollOnce(dx, mod) {
         let range = seedrandom('added entropy.', { entropy: true })
         let i = Math.ceil(range() * dx)
         if (mod === 0){
@@ -141,7 +142,7 @@ function Die({img, dx, rollDice, addToRollBox}) {
             // rollArray.push(` :${j}`)
             // addToRollBox(` ${moddedRoll}`)
         }
-        rollArray.push(` :${j}`)
+        rollArray.push(` (${j})`)
         console.log('rollInfo:', rollInfo)
         // console.log('rollArray:', rollArray)
         // let rollInfoString = rollInfo.toString()
@@ -154,14 +155,73 @@ function Die({img, dx, rollDice, addToRollBox}) {
         })
     }
 
+    function rollAggregate(dx, mod, dnum) {
+        console.log("dx: ", dx)
+        console.log("dnum: ", dnum)
+        console.log("mod: ", mod)
+        let range = seedrandom('added entropy.', { entropy: true });
+        let rollInfo;
+        let rollArray = []
+        let toPush;
+        let j = 0
+        if (mod === 0){
+            rollInfo = `${dnum}d${dx}`
+            // addToRollBox(rollString)
+            // rollArray.push(rollInfo)
+            // return rollInfo
+        }
+        else if (mod < 0) {
+            rollInfo = `${dnum}d${dx}${mod}`
+            // addToRollBox(rollString)
+            // rollArray.push(rollInfo)
+            // return rollInfo
+
+        }
+        else if (mod > 0) {
+            rollInfo = `${dnum}d${dx}+${mod}`
+            // addToRollBox(rollString)
+            // rollArray.push(rollInfo)
+            // return rollInfo
+
+        }
+        for ( let i= 0; i < dnum; i++) {
+            let roll = Math.ceil(range() * dx)
+            if (mod === 0) {
+                toPush = roll
+                rollArray.push(toPush)
+            }
+            else if (mod < 0) {
+                toPush = roll-mod
+                rollArray.push(toPush)
+            }
+            else if (mod > 0) {
+                toPush = roll+mod
+                rollArray.push(toPush)
+            }
+            // rollArray.push(` :${j}`)
+            // addToRollBox(` ${moddedRoll}`)
+        }
+        console.log('rollInfo:', rollInfo)
+        // console.log('rollArray:', rollArray)
+        // let rollInfoString = rollInfo.toString()
+        rollArray.sort(function (a, b) {return b - a})
+        let rollsOutcome = rollArray.toString()
+        // console.log('rollInfo:', rollInfoString)
+        console.log('rollsOutcome', rollsOutcome)
+        addToRollBox({
+            'roll': `${rollInfo}`,
+            'outcome': `${rollsOutcome}` 
+        })
+
+    }
+
     return(
         <div className='die'>
             <Card stripped bg='dark' style={{ width: '200px'}}>
                 <Card.Header>
                     <DropdownButton drop='down' title={rollType}>
-                        <Dropdown.Item eventKey="1" onClick={testCumulative}>Cumulative Rolls</Dropdown.Item>
-                        <Dropdown.Item eventKey="2" onClick={testAggregate}>Aggregate Rolls</Dropdown.Item>
-                        <Dropdown.Item eventKey="3">Accumulate entropy</Dropdown.Item>
+                        <Dropdown.Item eventKey="1" onClick={setCumulative}>Cumulative Rolls</Dropdown.Item>
+                        <Dropdown.Item eventKey="2" onClick={setAggregate}>Aggregate Rolls</Dropdown.Item>
                     </DropdownButton>
                     {/* <div className="navtabs">
                         <Nav variant="pills" defaultActiveKey="#first">
