@@ -3,6 +3,7 @@ import React, {useState} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../App.scss';
 import {Row, Nav, NavDropdown, Card, Button, ButtonToolbar, ButtonGroup, DropdownButton, Dropdown} from 'react-bootstrap';
+import {useStore} from 'react-smee'
 
 
 //so cold
@@ -79,13 +80,13 @@ function Die({img, dx, rollDice, addToRollBox}) {
         else if (mod < 0) {
             addToRollBox({
                 'roll': `1d${dx}${mod}`,
-                'outcome': {i}-{mod}  
+                'outcome': `${i} ${mod}`  
             })
         }
         else if (mod > 0) {
             addToRollBox({
                 'roll': `1d${dx}${mod}`,
-                'outcome': {i}+{mod}  
+                'outcome': `${i}+${mod}`  
             })
         }
     }
