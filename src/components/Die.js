@@ -72,30 +72,29 @@ function Die({img, dx, rollDice, addToRollBox}) {
         }
     }
 
-    //The problem here is with the if/else statements
-    function rollOnce(dx, mod) {
-        let range = seedrandom('added entropy.', { entropy: true })
-        let i = Math.ceil(range() * dx)
-        if (mod === 0){
-            // let rollString = ` 1d${dx}: ${i}`
-            addToRollBox({
-                        'roll': `1d${dx}`,
-                        'outcome': i    
-            })
-        }
-        else if (mod < 0) {
-            addToRollBox({
-                'roll': `1d${dx}${mod}`,
-                'outcome': `${i} ${mod}`  
-            })
-        }
-        else if (mod > 0) {
-            addToRollBox({
-                'roll': `1d${dx}${mod}`,
-                'outcome': `${i}+${mod}`  
-            })
-        }
-    }
+    // function rollOnce(dx, mod) {
+    //     let range = seedrandom('added entropy.', { entropy: true })
+    //     let i = Math.ceil(range() * dx)
+    //     if (mod === 0){
+    //         // let rollString = ` 1d${dx}: ${i}`
+    //         addToRollBox({
+    //                     'roll': `1d${dx}`,
+    //                     'outcome': i    
+    //         })
+    //     }
+    //     else if (mod < 0) {
+    //         addToRollBox({
+    //             'roll': `1d${dx}${mod}`,
+    //             'outcome': `${i} ${mod}`  
+    //         })
+    //     }
+    //     else if (mod > 0) {
+    //         addToRollBox({
+    //             'roll': `1d${dx}${mod}`,
+    //             'outcome': `${i}+${mod}`  
+    //         })
+    //     }
+    // }
 
     function rollCumulativeGlobal(dx, mod, dnum) {
         console.log("dx: ", dx)
@@ -108,22 +107,14 @@ function Die({img, dx, rollDice, addToRollBox}) {
         let j = 0
         if (mod === 0){
             rollInfo = `${dnum}d${dx}`
-            // addToRollBox(rollString)
-            // rollArray.push(rollInfo)
-            // return rollInfo
+
         }
         else if (mod < 0) {
             rollInfo = `${dnum}d${dx}${mod}`
-            // addToRollBox(rollString)
-            // rollArray.push(rollInfo)
-            // return rollInfo
 
         }
         else if (mod > 0) {
             rollInfo = `${dnum}d${dx}+${mod}`
-            // addToRollBox(rollString)
-            // rollArray.push(rollInfo)
-            // return rollInfo
 
         }
         for ( let i= 0; i < dnum; i++) {
@@ -142,16 +133,12 @@ function Die({img, dx, rollDice, addToRollBox}) {
                 rollArray.push(toPush)
             }
             j = j + roll
-            // rollArray.push(` :${j}`)
-            // addToRollBox(` ${moddedRoll}`)
+
         }
         let moddedRoll = j + mod 
         rollArray.push(` (${j} + ${mod}: ${moddedRoll})`)
         console.log('rollInfo:', rollInfo)
-        // console.log('rollArray:', rollArray)
-        // let rollInfoString = rollInfo.toString()
         let rollsOutcome = rollArray.toString()
-        // console.log('rollInfo:', rollInfoString)
         console.log('rollsOutcome', rollsOutcome)
         addToRollBox({
             'roll': `${rollInfo}`,
@@ -170,22 +157,14 @@ function Die({img, dx, rollDice, addToRollBox}) {
         let j = 0
         if (mod === 0){
             rollInfo = `${dnum}d${dx}`
-            // addToRollBox(rollString)
-            // rollArray.push(rollInfo)
-            // return rollInfo
+
         }
         else if (mod < 0) {
             rollInfo = `${dnum}d${dx}${mod}`
-            // addToRollBox(rollString)
-            // rollArray.push(rollInfo)
-            // return rollInfo
 
         }
         else if (mod > 0) {
             rollInfo = `${dnum}d${dx}+${mod}`
-            // addToRollBox(rollString)
-            // rollArray.push(rollInfo)
-            // return rollInfo
 
         }
         for ( let i= 0; i < dnum; i++) {
@@ -204,16 +183,12 @@ function Die({img, dx, rollDice, addToRollBox}) {
                 rollArray.push(toPush)
             }
             j = j + moddedRoll
-            // rollArray.push(` :${j}`)
-            // addToRollBox(` ${moddedRoll}`)
+
         }
-        rollArray.push(` (${j})`)
-        console.log('rollInfo:', rollInfo)
-        // console.log('rollArray:', rollArray)
-        // let rollInfoString = rollInfo.toString()
+        if (dnum > 1) {
+            rollArray.push(` (${j})`)
+        }
         let rollsOutcome = rollArray.toString()
-        // console.log('rollInfo:', rollInfoString)
-        console.log('rollsOutcome', rollsOutcome)
         addToRollBox({
             'roll': `${rollInfo}`,
             'outcome': `${rollsOutcome}` 
@@ -221,9 +196,6 @@ function Die({img, dx, rollDice, addToRollBox}) {
     }
 
     function rollAggregate(dx, mod, dnum) {
-        console.log("dx: ", dx)
-        console.log("dnum: ", dnum)
-        console.log("mod: ", mod)
         let range = seedrandom('added entropy.', { entropy: true });
         let rollInfo;
         let rollArray = []
@@ -309,9 +281,6 @@ function Die({img, dx, rollDice, addToRollBox}) {
                         Modifier
                     </div>
                     <div className='die-selector'>
-                        {/* <button className='button-plus-minus' onClick={modDown}> - </button>
-                        {mod}
-                        <button className='button-plus-minus' onClick={modUp}> + </button> */}
                         <ButtonToolbar aria-label="Toolbar with button groups">
                             <ButtonGroup className="mr-2" aria-label="First group">
                                 <Button className='button-plus-minus' onClick={modDown}> - </Button>
