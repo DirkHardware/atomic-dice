@@ -1,0 +1,44 @@
+<?xml version="1.0" standalone="no" ?>
+<!DOCTYPE project PUBLIC "-//audacityproject-1.3.0//DTD//EN" "http://audacity.sourceforge.net/xml/audacityproject-1.3.0.dtd" >
+<project xmlns="http://audacity.sourceforge.net/xml/" projname="tau_charge_data" version="1.3.0" audacityversion="2.3.3" sel0="0.5698022711" sel1="0.5698022711" vpos="0" h="0.0000000000" zoom="115.8296541575" rate="44100.0" snapto="off" selectionformat="hh:mm:ss + milliseconds" frequencyformat="Hz" bandwidthformat="octaves">
+	<tags>
+		<tag name="compatible_brands" value="isommp42"/>
+		<tag name="Software" value="Lavf56.40.101"/>
+		<tag name="minor_version" value="0"/>
+		<tag name="major_brand" value="mp42"/>
+	</tags>
+	<wavetrack name="Half-Life Tau Cannon Comparison - from YouTube" isSelected="1" height="150" minimized="0" channel="0" linked="1" mute="0" solo="0" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="239861">
+				<waveblock start="0">
+					<simpleblockfile filename="eff1f15c.au" len="239861" min="-0.948996" max="0.952675" rms="0.335796"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="6">
+				<controlpoint t="0.906503613118" val="0.352112650871"/>
+				<controlpoint t="1.528106090685" val="0.352112650871"/>
+				<controlpoint t="2.123808465020" val="0.309859156609"/>
+				<controlpoint t="3.677814658938" val="0.197183072567"/>
+				<controlpoint t="4.601585007544" val="0.140845060349"/>
+				<controlpoint t="5.430388310966" val="0.056338012218"/>
+			</envelope>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Half-Life Tau Cannon Comparison - from YouTube" isSelected="1" height="150" minimized="0" channel="1" linked="0" mute="0" solo="0" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="239861">
+				<waveblock start="0">
+					<simpleblockfile filename="eff1f3c5.au" len="239861" min="-0.948996" max="0.952676" rms="0.335796"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="6">
+				<controlpoint t="0.906503613118" val="0.352112650871"/>
+				<controlpoint t="1.528106090685" val="0.352112650871"/>
+				<controlpoint t="2.123808465020" val="0.309859156609"/>
+				<controlpoint t="3.677814658938" val="0.197183072567"/>
+				<controlpoint t="4.601585007544" val="0.140845060349"/>
+				<controlpoint t="5.430388310966" val="0.056338012218"/>
+			</envelope>
+		</waveclip>
+	</wavetrack>
+</project>
